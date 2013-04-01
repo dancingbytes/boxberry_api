@@ -1,4 +1,8 @@
-boxberry_api
-============
+BoxberryApi
 
-API for Boxberry.ru
+
+### License
+
+Author: Tyralion (piliaiev@gmail.com)
+
+Copyright (c) 2012 DansingBytes.ru, released under the BSD license
