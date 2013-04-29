@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["piliaiev@gmail.com"]
   spec.description   = %q{API for Boxberry.ru}
   spec.summary       = %q{API for Boxberry.ru}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/dancingbytes/boxberry_api"
   spec.license       = "BSD"
 
   spec.files         = `git ls-files`.split($/)
@@ -22,6 +22,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"
 
-  spec.add_dependency "nokigori", "~> 1.5"
+  spec.add_dependency "nokogiri", "~> 1.5"
+  spec.add_dependency "railties", ">= 3.0.0"
 
 end
