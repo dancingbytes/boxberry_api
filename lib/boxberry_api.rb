@@ -3,15 +3,16 @@ require 'nokogiri'
 
 require 'boxberry_api/version'
 require 'boxberry_api/ext'
+require 'boxberry_api/message'
 
 module BoxberryApi
 
   extend self
 
   # Статусы доставки Boxberry.ru
-  STATUES = {
+  STATUSES = {
 
-    10  => "Заказ передагн клиенту",
+    10  => "Заказ передан клиенту",
     18  => "Заказ прибыл в пункт выдачи",
     19  => "Заказ вернулся",
     22  => "Заказ принят на склад Boxberry"
@@ -40,9 +41,20 @@ module BoxberryApi
 
   end # charges
 
+  def status(code)
+    ::BoxberryApi::STATUSES[code]
+  end # status
+
+  def send_message(order)
+
+    msg = ::BoxberryApi::Message.new(order)
+    msg.send_sms
+
+  end # send_message
+
 end # BoxberryApi
 
-require 'boxberry_api/cities'
+require 'boxberry_api/delivery'
 require 'boxberry_api/base'
 require 'boxberry_api/xml'
 

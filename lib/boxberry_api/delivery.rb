@@ -1,7 +1,7 @@
 # encoding: utf-8
 module BoxberryApi
 
-  class Cities
+  class Delivery
 
     # Соответсвие нашего кода города с
     # - код Боксберри
@@ -1006,7 +1006,7 @@ module BoxberryApi
 
       @city     = city
       @charges  = charges
-      @table    = ::BoxberryApi::Cities::CODES[ city_format(city) ] || {}
+      @table    = ::BoxberryApi::Delivery::CODES[ city_format(city) ] || {}
       @tariff   = @city.nil? ? nil : calculate_tariff(weight)
 
     end # initialize
@@ -1063,6 +1063,6 @@ module BoxberryApi
 
     end # calculate_tariff
 
-  end # Cities
+  end # Delivery
 
 end # BoxberryApi
