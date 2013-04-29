@@ -51,14 +51,14 @@ class BoxberryController < ApplicationController
 
   def auth
 
-    unless BoxberryApi.auth_for?(request.remote_ip)
+    unless ::BoxberryApi.auth_for?(request.remote_ip)
 
       respond_to do |format|
         format.html { render :file => "#{Rails.root}/public/422.html", :status => 422, :layout => false }
         format.any  { head 422 }
       end
 
-    end # if
+    end # unless
 
   end # auth
 

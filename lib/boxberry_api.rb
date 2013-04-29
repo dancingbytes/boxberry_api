@@ -3,8 +3,6 @@ require 'nokogiri'
 
 require 'boxberry_api/version'
 require 'boxberry_api/ext'
-require 'boxberry_api/base'
-require 'boxberry_api/xml'
 
 module BoxberryApi
 
@@ -34,7 +32,19 @@ module BoxberryApi
 
   end # auth_for?
 
+  # Расходы
+  def charges(v = nil)
+
+    @charges = v.to_i.abs unless v.blank?
+    @charges || 0
+
+  end # charges
+
 end # BoxberryApi
+
+require 'boxberry_api/cities'
+require 'boxberry_api/base'
+require 'boxberry_api/xml'
 
 if defined?(::Rails)
   require 'boxberry_api/engine'

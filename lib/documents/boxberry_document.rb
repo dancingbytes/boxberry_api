@@ -10,8 +10,79 @@ module BoxberryDocument
     end # method_missing
 
     def initialize(order)
-      @order = order
+
+      @order    = order
+      @boxberry = ::BoxberryApi::Cities.new(order, order.weight)
+
     end # new
+
+    def barcode
+      ::Barcode.new(@order.uri, { width: 200, height: 48 }).ean13.base64
+    end # barcode
+
+    def order_number
+      @order.uri
+    end # order_number
+
+    def delivery_type
+      "САМОВЫВОЗ"
+    end # delivery_type
+
+    def order_adress
+      @order.city_name
+    end # order_adress
+
+    def order_fio
+      @order.fio
+    end # order_fio
+
+    def unpacking_type
+      "СО ВСКРЫТИЕМ"
+    end # unpacking_type
+
+    def order_cost_str
+
+      # Если заказ оплачен -- возвращаем ноль
+      return "0" if @order.payed?
+
+      # Иначе -- пишем сумму к оплате
+      str = "#{@order.price.round(2).indent} ("
+
+      coop = ( (@order.price.to_f - @order.price.to_i).round(2)*100 ).to_i
+      coop = 0 if coop == 100
+
+      str << @order.price.to_count(["рубль", "рубля", "рублей", "ноль рублей"]) do |num, s|
+        (num.to_human + " " + s).first_capitalize
+      end
+
+      str << coop.to_count(["копейка", "копейки", "копеек", " 00 копеек"]) do |num, s|
+        " " << String(num).rjust(2, '00') << " " << s
+      end
+
+      str << ")"
+
+    end # order_cost_str
+
+    def sorting_center
+
+      case @boxberry.sc
+
+        when :msk then "ЦСУ Москва"
+        when :ekb then "ЦСУ Екатеринбург"
+
+        else "нет данных"
+
+      end
+
+    end # sorting_center
+
+    def places
+      "1/1"
+    end # places
+
+    def weight
+      "#{@order.weight.round(2)} кг."
+    end # weight
 
     private
 
@@ -33,11 +104,11 @@ module BoxberryDocument
 
     end # new
 
-    def save
+    def to_file
 
-      file = ::File.join(File.dirname(__FILE__), "templates", "boxberry.html")
+      file = ::File.join(::File.dirname(__FILE__), "templates", "boxberry.html")
 
-      return false unless ::File.exists?(file)
+      return unless ::File.exists?(file)
 
       content = ::File.read(file)
       marks   = content.scan(/\{([[:alpha:]][A-Za-z0-9\_]+)\}/i)
@@ -46,11 +117,19 @@ module BoxberryDocument
         content.gsub!(/{#{mark}}/, @snippets.send(mark.to_sym))
       end unless marks.nil?
 
+      pdf = ::PDFKit.new(content)
+      pdf.to_file("/tmp/#{::Time.now.to_f}-#{rand}.pdf")
+
+    end # to_file
+
+    def save
+
       begin
 
-        pdf = ::PDFKit.new(content)
+        file = self.to_file
+        return false unless file
 
-        @multimedia.file_upload = pdf.to_file("/tmp/#{::Time.now.to_f}-#{rand}.pdf")
+        @multimedia.file_upload = file
         @multimedia.save
 
       rescue => e

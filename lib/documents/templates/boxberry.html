@@ -54,41 +54,52 @@
 					<td rowspan="2" style="border-right:0;width:300px;height:64px;vertical-align:middle;text-align:center;"><img src="{barcode}" width="200px" height="48px"></td>
 					<td rowspan="2" class="shvv">ШИ ВВ</td>
 				</tr>
+
 				<tr>
-					<td colspan="3" class="no">29302</td>
+					<td colspan="3" class="no">{order_number}</td>
 				</tr>
+
 				<tr>
 					<td colspan="3">Тип доставки:</td>
 					<td colspan="2" class="maincontent"><p>{delivery_type}</p></td>
 				</tr>
+
 				<tr>
 					<td colspan="3">ГОРОД / Адрес:</td>
 					<td colspan="2" class="maincontent"><p>{order_adress}</p></td>
 				</tr>
+
 				<tr>
 					<td colspan="3">ФИО получателя:</td>
 					<td colspan="2" class="maincontent"><p>{order_fio}</p></td>
 				</tr>
+
 				<tr>
 					<td colspan="3">Вид выдачи:</td>
-					<td colspan="2" class="maincontent"><p>БЕЗ ВСКРЫТИЯ</p></td>
+					<td colspan="2" class="maincontent"><p>{unpacking_type}</p></td>
 				</tr>
+
 				<tr>
 					<td colspan="3">Сумма к оплате:</td>
 					<td colspan="2" class="maincontent"><p>{order_cost_str}</p></td>
 				</tr>
+
 				<tr>
 					<td colspan="3" class="noheader">Место приема</td>
 					<td class="noheader">наименование клиента, наименование агента</td>
 					<td class="noheader" style="text-align:center;">место, вес</td>
 				</tr>
+
 				<tr>
-					<td colspan="3" class="no">ЦСУ Москва</td>
+					<td colspan="3" class="no">{sorting_center}</td>
 					<td style="border-top:0;text-align:center;">ООО "Анлас"</td>
-					<td style="width:64px;border-top:0;font-weight:bold;" class="maincontent">1/1 <br> 0,1 кг.</td>
+					<td style="width:64px;border-top:0;font-weight:bold;" class="maincontent">
+						{places}<br>
+						{weight}
+					</td>
 				</tr>
+
 			</tbody>
 		</table>
 	</body>
 </html>
-	
