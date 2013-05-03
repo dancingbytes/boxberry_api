@@ -16,7 +16,9 @@ class BoxberryController < ApplicationController
       )
 
       # Изменение статусов заказов
-      when "complete_orders" then return_answer_for("")
+      when "complete_orders" then return_answer_for(
+        ::BoxberryApi::Base.change_statuses(params[:data])
+      )
 
       # Список всех заказов
       else return_answer_for(
@@ -34,8 +36,8 @@ class BoxberryController < ApplicationController
     if file && ::File.exists?(file)
 
       send_file(file,
-        :type         => 'text/xml',
-        :disposition  => 'inline'  # 'attachment'
+        :type         => ::BoxberryApi.content_type,
+        :disposition  => ::BoxberryApi.disposition
       )
 
     else
@@ -47,7 +49,7 @@ class BoxberryController < ApplicationController
   def not_found
 
     respond_to do |format|
-      format.html { render :file => "#{Rails.root}/public/404.html", :status => 404, :layout => false }
+      format.html { render :file => "#{::Rails.root}/public/404.html", :status => 404, :layout => false }
       format.any  { head 404 }
     end
 
@@ -58,7 +60,7 @@ class BoxberryController < ApplicationController
     unless ::BoxberryApi.auth_for?(request.remote_ip)
 
       respond_to do |format|
-        format.html { render :file => "#{Rails.root}/public/422.html", :status => 422, :layout => false }
+        format.html { render :file => "#{::Rails.root}/public/422.html", :status => 422, :layout => false }
         format.any  { head 422 }
       end
 

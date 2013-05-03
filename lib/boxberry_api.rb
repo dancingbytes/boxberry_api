@@ -41,9 +41,27 @@ module BoxberryApi
 
   end # charges
 
+  def disposition(v = nil)
+
+    @disposition = v unless v.blank?
+    @disposition || "inline"
+
+  end # disposition
+
+  def content_type(v = nil)
+
+    @content_type = v unless v.blank?
+    @content_type || "text/xml"
+
+  end # content_type
+
   def status(code)
-    ::BoxberryApi::STATUSES[code]
+    ::BoxberryApi::STATUSES[code] || 'Неизвестный статус'
   end # status
+
+  def status?(code)
+    !::BoxberryApi::STATUSES[code].nil?
+  end # status?
 
   def send_message(order)
 

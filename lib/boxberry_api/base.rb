@@ -20,25 +20,56 @@ module BoxberryApi
     end # list_orders
 
     # Изменить статусы заказов
-    def change_statuses(data)
+    # На входе строка вида: 294373;29.05.2010;18|279347;29.05.2010;18|
+    def change_statuses(data, delimiter1 = "|", delimiter2 = ";")
 
-      # Изменен статус доставки
-      # OrderHistory.create_notice(self, 5, self.delivery_state_name('Неизвестно') ) if @delivery_state_code_changed
+      # Список обработанных заказов
+      orders = []
 
-      # @delivery_state_code_changed  = self.delivery_state_code_changed?
+      # Разбиваем основную строку
+      (String(data).split(delimiter1) || []).each do |str|
 
-      # При смене статуса доставки нужно производить нужные действия
-      # do_action if @delivery_state_code_changed
+        # Разбиваем внутреннюю строку
+        (String(str).split(delimiter2) || []).each do |(order_uri, date, state)|
 
-=begin
-      OrderHistory.create_notice(self,
-        5,
-        BoxberryApi::STATUSES[code] || "Неизвестный статус"),
-        nil,
-        self.delivery_state_date
-      )
+          if (order = ::Order.by_boxberry.where(:uri => order_uri).first)
 
-=end
+            # Вносим id заказа в список обработанных
+            orders << order.id
+
+            # Изменяем статус доставки у заказа
+            order.delivery_state_code = state
+            order.save(validate: false)
+
+            # Сохраняем изменения в истории заказа
+            ::OrderHistory.create({
+
+              el.type_code  = 5
+              el.order_id   = order.id
+              el.order_uri  = order.uri
+              el.order_created_at = order.created_at
+              el.email      = order.email unless order.email.blank?
+              el.content    = "#{::OrderHistory::HISTORY_TYPES[5]}: #{::BoxberryApi::status(code)}"
+
+            })
+
+            # Отправлем смс-сообщение пользователю
+            ::BoxberryApi.send_message(order)
+
+          end # if
+
+        end # str
+
+      end # arr
+
+      # Если заказов нет -- завершаем работу
+      return if order.empty?
+
+      # Выбираем обработанные заказы и строим xml-ответ
+      ::BoxberryApi::XML.
+        new( ::Order.by_boxberry.where(:_id => orders) ).
+        status_orders.
+        to_file
 
     end # change_statuses
 

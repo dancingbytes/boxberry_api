@@ -34,6 +34,22 @@ module BoxberryApi
 
     end # list_orders
 
+    def status_orders
+
+      create_xml do |xml|
+
+        xml.set_status {
+
+          @selector.each do |order|
+            xml.order("id" => order.uri, "status" => order.delivery_state_code)
+          end # selector
+
+        } # set_status
+
+      end # create_xml
+
+    end # status_orders
+
     def to_file(file_path = nil)
 
       return unless valid?
