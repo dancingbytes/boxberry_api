@@ -44,12 +44,12 @@ module BoxberryApi
             # Сохраняем изменения в истории заказа
             ::OrderHistory.create({
 
-              el.type_code  = 5
-              el.order_id   = order.id
-              el.order_uri  = order.uri
-              el.order_created_at = order.created_at
-              el.email      = order.email unless order.email.blank?
-              el.content    = "#{::OrderHistory::HISTORY_TYPES[5]}: #{::BoxberryApi::status(code)}"
+              :type_code  => 5,
+              :order_id   => order.id,
+              :order_uri  => order.uri,
+              :order_created_at => order.created_at,
+              :email      => order.email,
+              :content    => "#{::OrderHistory::HISTORY_TYPES[5]}: #{::BoxberryApi::status(code)}"
 
             })
 
