@@ -1029,13 +1029,24 @@ module BoxberryApi
       @table[:zone]
     end # zone
 
+    # Сортировочный пункт / пункт выдачи заказов
     def code
       @table[:code]
     end # code
 
+    alias :delivery_point :code
+
     def sc
       @table[:sc]
     end # sc
+
+    # Код пункта приема
+    def collection_point
+
+      # Отправляем товары из Челябинска
+      20
+
+    end # collection_point
 
     private
 

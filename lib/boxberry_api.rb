@@ -19,17 +19,17 @@ module BoxberryApi
 
   }.freeze
 
-  def ip(v = nil)
+  def accept(v = nil)
 
-    @ip = v.ip_to_int unless v.blank?
-    @ip
+    @accept = v.ip_to_int unless v.blank?
+    @accept
 
-  end # ip
+  end # accept
 
   def auth_for?(target_ip)
 
     target_ip = target_ip.ip_to_int if target_ip.is_a?(String)
-    target_ip == self.ip
+    @accept && target_ip == @accept
 
   end # auth_for?
 

@@ -10,14 +10,18 @@ class BoxberryController < ApplicationController
 
     case params[:act].try(:downcase)
 
-      when "get_notcomplete"
-        return_answer_for("")
+      # Список необработанных заказов (не выгружались в БД Boxberry)
+      when "get_notcomplete" then return_answer_for(
+        ::BoxberryApi::Base.list_orders
+      )
 
-      when "complete_orders"
-        return_answer_for("")
+      # Изменение статусов заказов
+      when "complete_orders" then return_answer_for("")
 
-      else
-        not_found
+      # Список всех заказов
+      else return_answer_for(
+        ::BoxberryApi::Base.list_orders(true)
+      )
 
     end # case
 
@@ -30,8 +34,8 @@ class BoxberryController < ApplicationController
     if file && ::File.exists?(file)
 
       send_file(file,
-        :type => '',
-        :disposition => 'attachment'
+        :type         => 'text/xml',
+        :disposition  => 'inline'  # 'attachment'
       )
 
     else
