@@ -39,7 +39,9 @@ module BoxberryApi
 
             # Изменяем статус доставки у заказа
             order.delivery_state_code = state
-            order.save(validate: false)
+            Order.where(:_id => order.id).update_all({
+              delivery_state_code: state
+            })
 
             # Сохраняем изменения в истории заказа
             ::OrderHistory.create({
