@@ -51,6 +51,7 @@ module BoxberryApi
               :order_uri  => order.uri,
               :order_created_at => order.created_at,
               :email      => order.email,
+              :created_at => (date.to_time rescue nil),
               :content    => "#{::OrderHistory::HISTORY_TYPES[5]}: #{::BoxberryApi::status(code)}"
 
             })
