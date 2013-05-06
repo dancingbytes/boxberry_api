@@ -194,7 +194,7 @@ module BoxberryApi
         xml.nds       "18%"
 
         # Стоимость ( с учетом количества товара)
-        xml.price     item.total_price
+        xml.price     item.price
 
         # Количество товаров
         xml.quantity  item.count

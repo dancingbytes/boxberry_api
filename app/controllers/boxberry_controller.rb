@@ -29,6 +29,16 @@ class BoxberryController < ApplicationController
         ::BoxberryApi::Base.change_statuses(params[:data])
       )
 
+      # Ошибки заказов
+      when "orders_errors" then
+
+        ::BoxberryApi::Base.orders_errors(params[:data])
+
+        respond_to do |format|
+          format.html { render :text => "Ok", :status => 200, :layout => false }
+          format.any  { head 200 }
+        end
+
       # Список всех заказов
       else return_answer_for(
         ::BoxberryApi::Base.list_orders(true)

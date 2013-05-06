@@ -12,7 +12,7 @@ module BoxberryApi
       # Абакан
       '19-0-1-0' => {
 
-        :code => 191,
+        :code => '191',
         :zone => 2,
         :sc   => :ekb
 
@@ -21,7 +21,7 @@ module BoxberryApi
       # Альметьевск
       '16-8-1-0' => {
 
-        :code => 222,
+        :code => '222',
         :zone => 1,
         :sc   => :msk
 
@@ -30,7 +30,7 @@ module BoxberryApi
       # Архангельск
       '29-0-1-0' => {
 
-        :code => 204,
+        :code => '204',
         :zone => 1,
         :sc   => :msk
 
@@ -39,7 +39,7 @@ module BoxberryApi
       # Асбест
       '66-0-2-0' => {
 
-        :code => 1004,
+        :code => '1004',
         :zone => 1,
         :sc   => :ekb
 
@@ -48,7 +48,7 @@ module BoxberryApi
       # Астрахань
       '30-0-1-0' => {
 
-        :code => 201,
+        :code => '201',
         :zone => 1,
         :sc   => :msk
 
@@ -57,7 +57,7 @@ module BoxberryApi
       # Балашиха, московская область
       '50-2-1-0' => {
 
-        :code => 1010,
+        :code => '1010',
         :zone => 1,
         :sc   => :msk
 
@@ -66,7 +66,7 @@ module BoxberryApi
       # Барнаул
       '22-0-1-0' => {
 
-        :code => 82,
+        :code => '82',
         :zone => 2,
         :sc   => :ekb
 
@@ -75,7 +75,7 @@ module BoxberryApi
       # Белгород
       '31-0-1-0' => {
 
-        :code => 72,
+        :code => '72',
         :zone => 1,
         :sc   => :msk
 
@@ -84,7 +84,7 @@ module BoxberryApi
       # Березники, пермский край (город)
       '59-0-2-0' => {
 
-        :code => 31,
+        :code => '31',
         :zone => 1,
         :sc   => :msk
 
@@ -93,7 +93,7 @@ module BoxberryApi
       # Благовещенск, амурская область
       '28-0-1-0' => {
 
-        :code => 182,
+        :code => '182',
         :zone => 4,
         :sc   => :ekb
 
@@ -102,7 +102,7 @@ module BoxberryApi
       # Братск, иркутская область
       '38-0-5-0' => {
 
-        :code => 143,
+        :code => '143',
         :zone => 3,
         :sc   => :ekb
 
@@ -111,7 +111,7 @@ module BoxberryApi
       # Брянск
       '32-0-1-0' => {
 
-        :code => 212,
+        :code => '212',
         :zone => 1,
         :sc   => :msk
 
@@ -120,7 +120,7 @@ module BoxberryApi
       # Великий Новгород
       '53-0-1-0' => {
 
-        :code => 113,
+        :code => '113',
         :zone => 1,
         :sc   => :msk
 
@@ -129,7 +129,7 @@ module BoxberryApi
       # Владивосток
       '25-0-1-0' => {
 
-        :code => 90,
+        :code => '90',
         :zone => 4,
         :sc   => :ekb
 
@@ -138,7 +138,7 @@ module BoxberryApi
       # Владимир
       '33-0-1-0' => {
 
-        :code => 151,
+        :code => '151',
         :zone => 1,
         :sc   => :msk
 
@@ -147,7 +147,7 @@ module BoxberryApi
       # Волгоград
       '34-0-1-0' => {
 
-        :code => 240,
+        :code => '240',
         :zone => 1,
         :sc   => :msk
 
@@ -156,7 +156,7 @@ module BoxberryApi
       # Волгодонск, ростовская область
       '61-0-4-0' => {
 
-        :code => 52,
+        :code => '52',
         :zone => 1,
         :sc   => :msk
 
@@ -165,7 +165,7 @@ module BoxberryApi
       # Воркута, республика Коми
       '11-0-2-0' => {
 
-        :code => 162,
+        :code => '162',
         :zone => 1,
         :sc   => :ekb
 
@@ -174,7 +174,7 @@ module BoxberryApi
       # Воронеж
       '36-0-1-0' => {
 
-        :code => 70,
+        :code => '70',
         :zone => 1,
         :sc   => :msk
 
@@ -183,7 +183,7 @@ module BoxberryApi
       # Глазов, удмуртская республика
       '18-0-4-0' => {
 
-        :code => 35,
+        :code => '35',
         :zone => 1,
         :sc   => :msk
 
@@ -192,7 +192,7 @@ module BoxberryApi
       # Екатеринбург
       '66-0-1-0' => {
 
-        :code => 1002,
+        :code => '1002',
         :zone => 1,
         :sc   => :ekb
 
@@ -201,7 +201,7 @@ module BoxberryApi
       # Иваново
       '37-0-1-0' => {
 
-        :code => 111,
+        :code => '111',
         :zone => 1,
         :sc   => :msk
 
@@ -210,7 +210,7 @@ module BoxberryApi
       # Ижевск, удмуртская республика
       '18-0-1-0' => {
 
-        :code => 32,
+        :code => '32',
         :zone => 1,
         :sc   => :msk
 
@@ -219,7 +219,7 @@ module BoxberryApi
       # Иркутск
       '38-0-3-0' => {
 
-        :code => 14,
+        :code => '14',
         :zone => 3,
         :sc   => :ekb
 
@@ -228,7 +228,7 @@ module BoxberryApi
       # Йошкар-Ола
       '12-0-1-0' => {
 
-        :code => 152,
+        :code => '152',
         :zone => 1,
         :sc   => :msk
 
@@ -237,7 +237,7 @@ module BoxberryApi
       # Казань
       '16-0-1-0' => {
 
-        :code => 220,
+        :code => '220',
         :zone => 1,
         :sc   => :msk
 
@@ -246,7 +246,7 @@ module BoxberryApi
       # Калуга
       '40-0-1-0' => {
 
-        :code => 19,
+        :code => '19',
         :zone => 1,
         :sc   => :msk
 
@@ -255,7 +255,7 @@ module BoxberryApi
       # Каменск-Уральский
       '66-0-22-0' => {
 
-        :code => 101,
+        :code => '101',
         :zone => 1,
         :sc   => :ekb
 
@@ -264,7 +264,7 @@ module BoxberryApi
       # Кемерово
       '42-0-9-0' => {
 
-        :code => 80,
+        :code => '80',
         :zone => 2,
         :sc   => :ekb
 
@@ -273,7 +273,7 @@ module BoxberryApi
       # Киров, кировская область
       '43-0-1-0' => {
 
-        :code => 207,
+        :code => '207',
         :zone => 1,
         :sc   => :msk
 
@@ -282,7 +282,7 @@ module BoxberryApi
       # Комсомольск-на-Амуре
       '27-0-5-0' => {
 
-        :code => 181,
+        :code => '181',
         :zone => 4,
         :sc   => :ekb
 
@@ -291,7 +291,7 @@ module BoxberryApi
       # Кострома
       '44-1-1-0' => {
 
-        :code => 109,
+        :code => '109',
         :zone => 1,
         :sc   => :msk
 
@@ -300,7 +300,7 @@ module BoxberryApi
       # Краснодар
       '23-0-1-0' => {
 
-        :code => 40,
+        :code => '40',
         :zone => 1,
         :sc   => :msk
 
@@ -309,7 +309,7 @@ module BoxberryApi
       # Красноярск
       '24-0-1-0' => {
 
-        :code => 190,
+        :code => '190',
         :zone => 2,
         :sc   => :ekb
 
@@ -318,7 +318,7 @@ module BoxberryApi
       # Курган
       '45-0-1-0' => {
 
-        :code => 4,
+        :code => '4',
         :zone => 1,
         :sc   => :ekb
 
@@ -327,7 +327,7 @@ module BoxberryApi
       # Курск
       '46-0-1-0' => {
 
-        :code => 73,
+        :code => '73',
         :zone => 1,
         :sc   => :msk
 
@@ -336,7 +336,7 @@ module BoxberryApi
       # Лесной, свердловская область
       '66-0-13-0' => {
 
-        :code => 105,
+        :code => '105',
         :zone => 1,
         :sc   => :ekb
 
@@ -345,7 +345,7 @@ module BoxberryApi
       # Липецк
       '48-0-1-0' => {
 
-        :code => 71,
+        :code => '71',
         :zone => 1,
         :sc   => :mks
 
@@ -354,7 +354,7 @@ module BoxberryApi
       # Магнитогорск
       '74-0-9-0' => {
 
-        :code => 21,
+        :code => '21',
         :zone => 1,
         :sc   => :ekb
 
@@ -363,7 +363,7 @@ module BoxberryApi
       # Миасс
       '74-0-9-0' => {
 
-        :code => 22,
+        :code => '22',
         :zone => 1,
         :sc   => :ekb
 

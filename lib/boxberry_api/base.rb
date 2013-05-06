@@ -79,6 +79,20 @@ module BoxberryApi
 
     end # change_statuses
 
+    # Ответ Boxberry об ошибках заказа.
+    def orders_errors(data)
+
+      return if data.blank?
+
+      file = File.open("/tmp/boxberry-errors-#{::Time.now.to_f}-#{rand}.xml") { |f|
+        f.write(data)
+      }
+
+      return unless ::File.exists?(file)
+      BoxberryMailer.errors(file).deliver
+
+    end # orders_errors
+
   end # Base
 
 end # BoxberryApi
