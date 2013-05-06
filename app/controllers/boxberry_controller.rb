@@ -3,10 +3,19 @@ class BoxberryController < ApplicationController
 
   unloadable
 
-  before_filter :auth
+  # before_filter :auth
 
   # POST /api/boxberry
   def actions
+
+    file_path = File.join(Rails.root, "tmp", "#{rand}-#{Time.now.to_f}.boxberry.txt")
+    File.open(file_path, 'wb') do |f|
+      f.write request.body.read
+    end
+
+    puts "File: #{file_path}"
+    puts "Params: #{params}"
+    puts
 
     case params[:act].try(:downcase)
 
@@ -41,15 +50,24 @@ class BoxberryController < ApplicationController
       )
 
     else
-      not_found
+      bad_request
     end
 
   end # return_answer_for()
 
+  def bad_request
+
+    respond_to do |format|
+      format.html { render :text => "Неверный запрос", :status => 400, :layout => false }
+      format.any  { head 400 }
+    end
+
+  end # bad_request
+
   def not_found
 
     respond_to do |format|
-      format.html { render :file => "#{::Rails.root}/public/404.html", :status => 404, :layout => false }
+      format.html { render :text => "Ресурс не найден", :status => 404, :layout => false }
       format.any  { head 404 }
     end
 
@@ -60,8 +78,8 @@ class BoxberryController < ApplicationController
     unless ::BoxberryApi.auth_for?(request.remote_ip)
 
       respond_to do |format|
-        format.html { render :file => "#{::Rails.root}/public/422.html", :status => 422, :layout => false }
-        format.any  { head 422 }
+        format.html { render :text => "Доступ запрещен", :status => 403, :layout => false }
+        format.any  { head 403 }
       end
 
     end # unless

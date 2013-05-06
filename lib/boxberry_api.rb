@@ -70,13 +70,21 @@ module BoxberryApi
 
   end # send_message
 
+  def errors(msg)
+
+    ::Rails.logger.tagged("\nBoxberryApi") {
+      ::Rails.logger.error(msg)
+    }
+
+  end # errors
+
+  alias :error :errors
+
 end # BoxberryApi
 
 require 'boxberry_api/delivery'
 require 'boxberry_api/base'
 require 'boxberry_api/xml'
 
-if defined?(::Rails)
-  require 'boxberry_api/engine'
-  require 'boxberry_api/railtie'
-end
+require 'boxberry_api/engine'
+require 'boxberry_api/railtie'

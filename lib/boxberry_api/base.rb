@@ -39,8 +39,11 @@ module BoxberryApi
 
             # Изменяем статус доставки у заказа
             order.delivery_state_code = state
+            order.delivery_state_name = ::BoxberryApi.status(state)
+
             Order.where(:_id => order.id).update_all({
-              delivery_state_code: state
+              delivery_state_code: order.delivery_state_code,
+              delivery_state_name: order.delivery_state_name
             })
 
             # Сохраняем изменения в истории заказа
@@ -66,7 +69,7 @@ module BoxberryApi
       end # arr
 
       # Если заказов нет -- завершаем работу
-      return if order.empty?
+      return if orders.empty?
 
       # Выбираем обработанные заказы и строим xml-ответ
       ::BoxberryApi::XML.
