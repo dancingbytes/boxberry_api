@@ -22,9 +22,15 @@ module BoxberryApi
 
           xml.OrdersDay({ "day" => current_date.strftime("%Y%m%d") }) {
 
-            @selector.each do |order|
-              create_order_card(xml, order)
-            end # selector
+            if @selector.count == 0
+              xml.text(" ")
+            else
+
+              @selector.each do |order|
+                create_order_card(xml, order)
+              end # selector
+
+            end
 
           } # OrdersDay
 
@@ -40,9 +46,15 @@ module BoxberryApi
 
         xml.set_status {
 
-          @selector.each do |order|
-            xml.order("id" => order.uri, "status" => order.delivery_state_code)
-          end # selector
+          if @selector.count == 0
+            xml.text(" ")
+          else
+
+            @selector.each do |order|
+              xml.order("id" => order.uri, "status" => order.delivery_state_code)
+            end # selector
+
+          end
 
         } # set_status
 
