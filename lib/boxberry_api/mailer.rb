@@ -1,5 +1,5 @@
 # encoding: utf-8
-class BoxberryMailer < ActionMailer::Base
+class BoxberryMailer < ::ActionMailer::Base
 
   default from: "Anlas.ru <info@anlas.ru>",
           to:   "Ivan <ivan@anlas.ru>"

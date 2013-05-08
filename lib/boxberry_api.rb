@@ -4,6 +4,7 @@ require 'nokogiri'
 require 'boxberry_api/version'
 require 'boxberry_api/ext'
 require 'boxberry_api/message'
+require 'boxberry_api/mailer'
 
 module BoxberryApi
 

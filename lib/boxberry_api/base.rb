@@ -30,41 +30,39 @@ module BoxberryApi
       (String(data).split(delimiter1) || []).each do |str|
 
         # Разбиваем внутреннюю строку
-        (String(str).split(delimiter2) || []).each do |(order_uri, date, state)|
+        (order_uri, date, state) = (String(str).split(delimiter2) || [])
 
-          if (order = ::Order.by_boxberry.where(:uri => order_uri).first)
+        if (order = ::Order.by_boxberry.where(:uri => order_uri).first)
 
-            # Вносим id заказа в список обработанных
-            orders << order.id
+          # Вносим id заказа в список обработанных
+          orders << order.id
 
-            # Изменяем статус доставки у заказа
-            order.delivery_state_code = state
-            order.delivery_state_name = ::BoxberryApi.status(state)
+          # Изменяем статус доставки у заказа
+          order.delivery_state_code = state
+          order.delivery_state_name = ::BoxberryApi.status(state)
 
-            Order.where(:_id => order.id).update_all({
-              delivery_state_code: order.delivery_state_code,
-              delivery_state_name: order.delivery_state_name
-            })
+          Order.with(safe: true).where(:_id => order.id).update_all({
+            delivery_state_code: order.delivery_state_code,
+            delivery_state_name: order.delivery_state_name
+          })
 
-            # Сохраняем изменения в истории заказа
-            ::OrderHistory.create({
+          # Сохраняем изменения в истории заказа
+          ::OrderHistory.create({
 
-              :type_code  => 5,
-              :order_id   => order.id,
-              :order_uri  => order.uri,
-              :order_created_at => order.created_at,
-              :email      => order.email,
-              :created_at => (date.to_time rescue nil),
-              :content    => "#{::OrderHistory::HISTORY_TYPES[5]}: #{::BoxberryApi::status(code)}"
+            :type_code  => 5,
+            :order_id   => order.id,
+            :order_uri  => order.uri,
+            :order_created_at => order.created_at,
+            :email      => order.email,
+            :created_at => (date.to_time rescue nil),
+            :content    => "#{::OrderHistory::HISTORY_TYPES[5]}: #{::BoxberryApi::status(state)}"
 
-            })
+          })
 
-            # Отправлем смс-сообщение пользователю
-            ::BoxberryApi.send_message(order)
+          # Отправлем смс-сообщение пользователю
+          ::BoxberryApi.send_message(order)
 
-          end # if
-
-        end # str
+        end # if
 
       end # arr
 
@@ -73,7 +71,7 @@ module BoxberryApi
 
       # Выбираем обработанные заказы и строим xml-ответ
       ::BoxberryApi::XML.
-        new( ::Order.by_boxberry.where(:_id => orders) ).
+        new( ::Order.by_boxberry.where(:_id.in => orders) ).
         status_orders.
         to_file
 
@@ -83,13 +81,7 @@ module BoxberryApi
     def orders_errors(data)
 
       return if data.blank?
-
-      file = File.open("/tmp/boxberry-errors-#{::Time.now.to_f}-#{rand}.xml") { |f|
-        f.write(data)
-      }
-
-      return unless ::File.exists?(file)
-      BoxberryMailer.errors(file).deliver
+      ::BoxberryMailer.errors(data).deliver
 
     end # orders_errors
 
