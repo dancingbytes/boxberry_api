@@ -20,9 +20,9 @@ module BoxberryApi
 
   }.freeze
 
-  def accept(v = nil)
+  def accept(*args)
 
-    @accept = v.ip_to_int unless v.blank?
+    @accept = args.map(&:ip_to_int) if args.length != 0
     @accept
 
   end # accept
@@ -30,7 +30,7 @@ module BoxberryApi
   def auth_for?(target_ip)
 
     target_ip = target_ip.ip_to_int if target_ip.is_a?(String)
-    @accept && target_ip == @accept
+    ::BoxberryApi.accept.include?(target_ip)
 
   end # auth_for?
 

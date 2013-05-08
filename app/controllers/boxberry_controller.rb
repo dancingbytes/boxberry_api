@@ -3,7 +3,7 @@ class BoxberryController < ApplicationController
 
   unloadable
 
-  # before_filter :auth
+  before_filter :auth
 
   # POST /api/boxberry
   def actions
