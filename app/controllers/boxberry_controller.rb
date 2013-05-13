@@ -5,6 +5,7 @@ class BoxberryController < ApplicationController
 
   rescue_from(e) {
     ::Rails.logger.error(e.message)
+    ::Rails.logger.error(e.backtrace.join("\n"))
     app_error
   }
 
@@ -22,14 +23,13 @@ class BoxberryController < ApplicationController
 
       # Изменение статусов заказов
       when "complete_orders" then return_answer_for(
-        ::BoxberryApi::Base.change_statuses(params[:data])
+        ::BoxberryApi::Base.change_statuses(encode_str(params[:data]))
       )
 
       # Ошибки заказов
       when "orders_errors" then
 
-        params[:data].force_encoding("utf-8")
-        ::BoxberryApi::Base.orders_errors(params[:data])
+        ::BoxberryApi::Base.orders_errors(encode_str(params[:data]))
 
         respond_to do |format|
           format.html { render :text => "Ok", :status => 200, :layout => false }
@@ -60,7 +60,14 @@ class BoxberryController < ApplicationController
       bad_request
     end
 
-  end # return_answer_for()
+  end # return_answer_for
+
+  def encode_str(str)
+
+    # str.force_encoding("utf-8")
+    str.encode('utf-8', 'binary', :invalid => :replace, :undef => :replace, :replace => '')
+
+  end # encode_str
 
   def bad_request
 
