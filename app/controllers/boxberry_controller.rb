@@ -32,6 +32,7 @@ class BoxberryController < ApplicationController
       # Ошибки заказов
       when "orders_errors" then
 
+        params[:data].force_encoding("utf-8")
         ::BoxberryApi::Base.orders_errors(params[:data])
 
         respond_to do |format|

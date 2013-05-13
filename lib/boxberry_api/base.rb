@@ -81,8 +81,6 @@ module BoxberryApi
     def orders_errors(data)
 
       return if data.blank?
-
-      data.force_encoding("utf-8")
       ::BoxberryMailer.errors(data).deliver
 
     end # orders_errors
