@@ -46,9 +46,10 @@ class BoxberryController < ApplicationController
 
     if file && ::File.exists?(file)
 
-      send_file(file,
+      send_data(file,
         :type         => ::BoxberryApi.content_type,
-        :disposition  => ::BoxberryApi.disposition
+        :disposition  => ::BoxberryApi.disposition,
+        :status       => 200
       )
 
     else
