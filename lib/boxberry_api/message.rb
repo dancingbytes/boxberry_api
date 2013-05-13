@@ -12,7 +12,7 @@ module BoxberryApi
     end # method_missing
 
     def send_sms
-      send("msg_#{meth}".to_sym)
+      send("msg_#{@order.delivery_state_code}".to_sym)
     end # send_sms
 
     def msg_10
