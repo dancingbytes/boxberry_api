@@ -17,28 +17,28 @@ module BoxberryApi
 
     def msg_10
 
-      send_message "Заказ № #{@order.uri} передан покупателю. #{::Time.now.('%d.%m.%Y %H:%M')}."
+      send_message "Спасибо, что воспользовались нашими услугами! Пожелания или жалобы просим отправлять на dir@anlas.ru. Будем рады отзыву на Яндекс.Маркете!"
       true
 
     end # msg_10
 
     def msg_18
 
-      send_message "Заказ № #{@order.uri} прибыл в пункт выдачи. #{::Time.now.('%d.%m.%Y %H:%M')}."
+      send_message "Заказ № #{@order.uri} прибыл в пункт выдачи Боксберри."
       true
 
     end # msg_18
 
     def msg_19
 
-      send_message "Заказ № #{@order.uri} вернулся. #{::Time.now.('%d.%m.%Y %H:%M')}."
+      send_message "Оформленный вами заказ № #{@order.uri} от #{@order.created_at('%d.%m.%Y %H:%M')} вернулся обратно."
       true
 
     end # msg_19
 
     def msg_22
 
-      send_message "Заказ № #{@order.uri} принят на сортировочный пункт. #{::Time.now.('%d.%m.%Y %H:%M')}."
+      send_message "Заказ № #{@order.uri} передан на доставку в Боксберри. По факту прибытия заказа вы получите смс-уведомдение."
       true
 
     end # msg_22
@@ -55,7 +55,7 @@ module BoxberryApi
       else
 
         ::BoxberryApi.error msg
-        # ::SMS.message(@order.phone_number, msg)
+        ::SMS.message(@order.phone_number, msg)
         return true
 
       end # unless

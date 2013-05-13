@@ -47,17 +47,17 @@ module BoxberryApi
           })
 
           # Сохраняем изменения в истории заказа
-          ::OrderHistory.create({
+          oh = ::OrderHistory.new
 
-            :type_code  => 5,
-            :order_id   => order.id,
-            :order_uri  => order.uri,
-            :order_created_at => order.created_at,
-            :email      => order.email,
-            :created_at => (date.to_time rescue nil),
-            :content    => "#{::OrderHistory::HISTORY_TYPES[5]}: #{::BoxberryApi::status(state)}"
+          oh.type_code  = 5
+          oh.order_id   = order.id
+          oh.order_uri  = order.uri
+          oh.order_created_at = order.created_at
+          oh.email      = order.email
+          oh.created_at = (date.to_time rescue nil)
+          oh.content    = "#{::OrderHistory::HISTORY_TYPES[5]}: #{order.delivery_state_name}"
 
-          })
+          oh..save
 
           # Отправлем смс-сообщение пользователю
           ::BoxberryApi.send_message(order)

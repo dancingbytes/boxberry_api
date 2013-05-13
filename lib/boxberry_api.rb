@@ -57,11 +57,11 @@ module BoxberryApi
   end # content_type
 
   def status(code)
-    ::BoxberryApi::STATUSES[code] || 'Неизвестный статус'
+    ::BoxberryApi::STATUSES[code.try(:to_i) || -1] || 'Неизвестный статус'
   end # status
 
   def status?(code)
-    !::BoxberryApi::STATUSES[code].nil?
+    !::BoxberryApi::STATUSES[code.try(:to_i) || -1].nil?
   end # status?
 
   def send_message(order)
@@ -73,9 +73,8 @@ module BoxberryApi
 
   def errors(msg)
 
-    ::Rails.logger.tagged("\nBoxberryApi") {
-      ::Rails.logger.error(msg)
-    }
+    ::Rails.logger.error(msg)
+    msg
 
   end # errors
 
