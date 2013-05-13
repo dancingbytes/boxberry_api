@@ -3,19 +3,14 @@ class BoxberryController < ApplicationController
 
   unloadable
 
+  rescue_from(Exception) {
+    app_error
+  }
+
   before_filter :auth
 
   # POST /api/boxberry
   def actions
-
-    file_path = File.join(Rails.root, "tmp", "#{rand}-#{Time.now.to_f}.boxberry.txt")
-    File.open(file_path, 'wb') do |f|
-      f.write request.body.read
-    end
-
-    puts "File: #{file_path}"
-    puts "Params: #{params}"
-    puts
 
     case params[:act].try(:downcase)
 
@@ -83,6 +78,15 @@ class BoxberryController < ApplicationController
     end
 
   end # not_found
+
+  def app_error
+
+    respond_to do |format|
+      format.html { render :text => "Ошибка сервера", :status => 500, :layout => false }
+      format.any  { head 505 }
+    end
+
+  end # app_error
 
   def auth
 
