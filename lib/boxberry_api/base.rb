@@ -57,7 +57,7 @@ module BoxberryApi
           oh.created_at = (date.to_time rescue nil)
           oh.content    = "#{::OrderHistory::HISTORY_TYPES[5]}: #{order.delivery_state_name}"
 
-          oh..save
+          oh.save
 
           # Отправлем смс-сообщение пользователю
           ::BoxberryApi.send_message(order)
