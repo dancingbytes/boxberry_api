@@ -54,8 +54,14 @@ module BoxberryApi
 
       else
 
-        ::BoxberryApi.error msg
-        ::SMS.message(@order.phone_number, msg)
+        begin
+          ::SMS.message(@order.phone_number, msg)
+        rescue => e
+          ::Rails.logger.tagged("SMS [message]") {
+            ::Rails.logger.error(e.message)
+          }
+        end
+
         return true
 
       end # unless
