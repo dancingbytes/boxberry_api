@@ -2,14 +2,9 @@
 class BoxberryController < ApplicationController
 
   unloadable
-
-  rescue_from(e) {
-    ::Rails.logger.error(e.message)
-    ::Rails.logger.error(e.backtrace.join("\n"))
-    app_error
-  }
-
   before_filter :auth
+
+  layout false
 
   # POST /api/boxberry
   def actions
@@ -91,7 +86,7 @@ class BoxberryController < ApplicationController
 
     respond_to do |format|
       format.html { render :text => "Ошибка сервера", :status => 500, :layout => false }
-      format.any  { head 505 }
+      format.any  { head 500 }
     end
 
   end # app_error
