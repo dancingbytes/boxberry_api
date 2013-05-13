@@ -3,7 +3,8 @@ class BoxberryController < ApplicationController
 
   unloadable
 
-  rescue_from(Exception) {
+  rescue_from(e) {
+    ::Rails.logger.error(e.message)
     app_error
   }
 
