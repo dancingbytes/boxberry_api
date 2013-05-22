@@ -1611,6 +1611,21 @@ module BoxberryApi
         ::BoxberryApi::Delivery::CODES
       end # codes
 
+      def info_for_city(city)
+
+        self.codes[
+
+          [
+            city.region_code,
+            city.district_code,
+            city.area_code,
+            city.village_code
+          ].join("-")
+
+        ] || {}
+
+      end # info_for_city
+
     end # class << seff
 
     def initialize(city, weight = 0.0, charges = ::BoxberryApi.charges)

@@ -24,7 +24,14 @@ module BoxberryApi
 
     def msg_18
 
-      send_message "Заказ № #{@order.uri} прибыл в пункт выдачи Боксберри."
+      datas = ::BoxberryApi::Delivery.info_for_city(@order)
+
+      str = "Заказ № #{@order.uri} прибыл в пункт выдачи Боксберри."
+      str << " Адрес: #{datas[:address]}."      if datas[:address]
+      str << " Телефон: #{datas[:phone]}."      if datas[:phone]
+      str << " Время работы: #{datas[:work]}."  if datas[:work]
+
+      send_message str
       true
 
     end # msg_18
