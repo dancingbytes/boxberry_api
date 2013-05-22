@@ -10,6 +10,9 @@ module BoxberryApi
 
   extend self
 
+  # Уникальный идентификатор доставки
+  UUID = "517a60368a67adab23000004".freeze
+
   # Статусы доставки Boxberry.ru
   STATUSES = {
 

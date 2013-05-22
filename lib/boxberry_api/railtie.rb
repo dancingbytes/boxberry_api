@@ -5,8 +5,9 @@ module BoxberryApi
 
   class Railtie < ::Rails::Railtie #:nodoc:
 
-    config.after_initialize do
-    end # initializer
+    rake_tasks do
+      load File.expand_path('../../tasks/boxberry.rake', __FILE__)
+    end
 
   end # Railtie
 
