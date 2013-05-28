@@ -554,7 +554,7 @@ module BoxberryApi
 
         code:     '71',
         zone:     1,
-        sc:       :mks,
+        sc:       :msk,
 
         city:     29,
         address:  "г. Липецк, ул. Циолковского, д. 32/3, офис 1",
