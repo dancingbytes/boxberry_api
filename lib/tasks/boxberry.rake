@@ -32,7 +32,7 @@ namespace :boxberry do
 
       dv.delivery_type_id = ::BoxberryApi::UUID
       dv.price            = "от #{b} руб. до #{e} руб."
-      dv.time             = (values[:delivery] + 1).to_count("день", "дня", "дней", "дней")
+      dv.time             = values[:delivery].to_count("день", "дня", "дней", "дней")
       dv.description      = descr
 
       unless dv.with(safe: true).save
