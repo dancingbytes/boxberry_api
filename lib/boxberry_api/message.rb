@@ -39,7 +39,7 @@ module BoxberryApi
 
     def msg_19
 
-      send_message "Оформленный вами заказ № #{@order.uri} от #{@order.created_at('%d.%m.%Y %H:%M')} вернулся обратно."
+      send_message "Оформленный вами заказ № #{@order.uri} от #{@order.created_at.strftime('%d.%m.%Y %H:%M')} вернулся обратно."
       true
 
     end # msg_19
