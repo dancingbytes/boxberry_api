@@ -23,6 +23,8 @@ module BoxberryApi
     # На входе строка вида: 294373;29.05.2010;18|279347;29.05.2010;18|
     def change_statuses(data, delimiter1 = "|", delimiter2 = ";")
 
+      puts "[Boxberry] change_statuses: #{data}"
+
       # Список обработанных заказов
       orders = []
 
@@ -57,7 +59,7 @@ module BoxberryApi
           oh.created_at = (date.to_time rescue nil)
           oh.content    = "#{::OrderHistory::HISTORY_TYPES[5]}: #{order.delivery_state_name}"
 
-          oh.save
+          oh.with({ safe: true }).save!
 
           # Отправлем смс-сообщение пользователю
           ::BoxberryApi.send_message(order)
