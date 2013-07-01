@@ -6,14 +6,14 @@ class BoxberryController < ApplicationController
 
   layout false
 
-  # POST /api/boxberry
+  # POST /api/boxberry(/:sc)
   def actions
 
     case params[:act].try(:downcase)
 
       # Список необработанных заказов (не выгружались в БД Boxberry)
       when "get_notcomplete" then return_answer_for(
-        ::BoxberryApi::Base.list_orders
+        ::BoxberryApi::Base.list_orders(params[:sc])
       )
 
       # Изменение статусов заказов
@@ -33,7 +33,7 @@ class BoxberryController < ApplicationController
 
       # Список всех заказов
       else return_answer_for(
-        ::BoxberryApi::Base.list_orders(true)
+        ::BoxberryApi::Base.list_orders(params[:sc], true)
       )
 
     end # case

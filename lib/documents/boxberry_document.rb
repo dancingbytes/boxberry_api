@@ -67,8 +67,8 @@ module BoxberryDocument
 
       case @boxberry.sc
 
-        when :msk then "ЦСУ Москва"
-        when :ekb then "ЦСУ Екатеринбург"
+        when '010'  then "ЦСУ Москва"
+        when '1002' then "ЦСУ Екатеринбург"
 
         else "нет данных"
 

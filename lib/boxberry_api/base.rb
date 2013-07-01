@@ -7,14 +7,14 @@ module BoxberryApi
 
     # Список заказов покупателей, которые еще не выгружались.
     # Если параметр data не задан, то вы выводятся все заказы.
-    def list_orders(all = nil)
+    def list_orders(sc = nil, all = nil)
 
       selector = ::Order.by_boxberry.for_delivery
       selector = selector.where(:delivery_state_code.in => [0, nil]) if all != true
 
       ::BoxberryApi::XML.
-        new(selector).
-        list_orders.
+        new(selector, sc).
+        list_orders().
         to_file
 
     end # list_orders

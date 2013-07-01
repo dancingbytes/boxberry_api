@@ -5,10 +5,11 @@ module BoxberryApi
 
     PHONE_RE  = /\A(\+7|7|8)(\d{10})\Z/
 
-    def initialize(selector)
+    def initialize(selector, sc = nil)
 
       @selector = selector
       @source   = nil
+      @sc       = sc
 
     end # new
 
@@ -97,6 +98,10 @@ module BoxberryApi
 
       delivery = ::BoxberryApi::Delivery.new(order, order.weight)
 
+      # Если стоит фильтр по сортировочному центру, то
+      # выбираем заказы, относящиеся к указанному ЦСУ.
+      return if !@sc.nil? && delivery.sc != @sc
+
       xml.order({ "id" => order.uri }) {
 
         # Общая стоимость заказа (ключая доставку)
@@ -138,7 +143,7 @@ module BoxberryApi
           xml.name        delivery.delivery_point
 
           # Код пункта приема заказа (интенет-магазин)
-          xml.name1       delivery.collection_point
+          xml.name1       delivery.sc
 
         } # shop
 

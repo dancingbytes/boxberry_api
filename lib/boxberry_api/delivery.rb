@@ -14,7 +14,7 @@ module BoxberryApi
 
         code:     '191',
         zone:     2,
-        sc:       :ekb,
+        sc:       '1002',
 
         city:     5,
         address:  "Абакан, ул. Ленинского Комсомола, д. 35. Второй офис слева. №76",
@@ -29,7 +29,7 @@ module BoxberryApi
 
         code:     '222',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     92,
         address:  "г. Альметьевск, ул. Нефтяников, д. 15",
@@ -44,7 +44,7 @@ module BoxberryApi
 
         code:     '204',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     6,
         address:  "г. Архангельск, ул. Левачёва д. 12",
@@ -59,7 +59,7 @@ module BoxberryApi
 
         code:     '1004',
         zone:     1,
-        sc:       :ekb,
+        sc:       '1002',
 
         city:     136,
         address:  "г. Асбест, ул. Войкова, д. 64",
@@ -74,7 +74,7 @@ module BoxberryApi
 
         code:     '201',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     7,
         address:  "г. Астрахань, ул. Николая Островского, д.148 у, офис 119, 1 этаж",
@@ -89,7 +89,7 @@ module BoxberryApi
 
         code:     '82',
         zone:     2,
-        sc:       :ekb,
+        sc:       '1002',
 
         city:     96,
         address:  "г. Барнаул, ул. Короленко, д. 48",
@@ -104,7 +104,7 @@ module BoxberryApi
 
         code:     '72',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     8,
         address:  "г. Белгород, пер. Харьковский, д. 36 Г",
@@ -119,7 +119,7 @@ module BoxberryApi
 
         code:     '31',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     9,
         address:  "г. Березники, пр-т Советский, д. 3",
@@ -134,7 +134,7 @@ module BoxberryApi
 
         code:     '182',
         zone:     4,
-        sc:       :ekb,
+        sc:       '1002',
 
         city:     10,
         address:  "г. Благовещенск, ул. Амурская, д. 180 офис 2",
@@ -149,7 +149,7 @@ module BoxberryApi
 
         code:     '143',
         zone:     3,
-        sc:       :ekb,
+        sc:       '1002',
 
         city:     11,
         address:  "г. Братск, Индустриальный проезд, дом № 5А/6, офис 204",
@@ -164,7 +164,7 @@ module BoxberryApi
 
         code:     '212',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     110,
         address:  "г. Брянск, ул. Фрунзе, д. 64",
@@ -179,7 +179,7 @@ module BoxberryApi
 
         code:     '113',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     12,
         address:  "г. Великий Новгород, ул. Кооперативная д. 7",
@@ -194,7 +194,7 @@ module BoxberryApi
 
         code:     '90',
         zone:     4,
-        sc:       :ekb,
+        sc:       '1002',
 
         city:     134,
         address:  "г. Владивосток, ул. Пологая, д. 50",
@@ -209,7 +209,7 @@ module BoxberryApi
 
         code:     '151',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     13,
         address:  "г. Владимир, пр. Ленина, д. 68",
@@ -224,7 +224,7 @@ module BoxberryApi
 
         code:     '240',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     14,
         address:  "г. Волгоград, ул. Островского, д. 5",
@@ -239,7 +239,7 @@ module BoxberryApi
 
         code:     '52',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     131,
         address:  "г. Волгодонск, ул. Энтузиастов, дом 3, офис 313",
@@ -254,7 +254,7 @@ module BoxberryApi
 
         code:     '162',
         zone:     1,
-        sc:       :ekb,
+        sc:       '1002',
 
         city:     135,
         address:  "г. Воркута, ул. Ленина, д. 14, кв. 1",
@@ -269,7 +269,7 @@ module BoxberryApi
 
         code:     '70',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     15,
         address:  "г. Воронеж, ул. 45 Стрелковой Дивизии, д. 106",
@@ -284,7 +284,7 @@ module BoxberryApi
 
         code:     '35',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     141,
         address:  "г. Глазов, ул. Первомайская, д. 41а, каб. 6",
@@ -299,7 +299,7 @@ module BoxberryApi
 
         code:     '1002.012',
         zone:     1,
-        sc:       :ekb,
+        sc:       '1002',
 
         city:     16,
         address:  "г. Екатеринбург, ул. 8 марта, д. 13, цоколь",
@@ -314,7 +314,7 @@ module BoxberryApi
 
         code:     '111',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     17,
         address:  "г. Иваново ул. Красных зорь, д. 16 офис 11 (1 подъезд, 1 этаж)",
@@ -329,7 +329,7 @@ module BoxberryApi
 
         code:     '32',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     18,
         address:  "г. Ижевск, ул. Карла Маркса, д. 1А",
@@ -344,7 +344,7 @@ module BoxberryApi
 
         code:     '14',
         zone:     3,
-        sc:       :ekb,
+        sc:       '1002',
 
         city:     19,
         address:  "г. Иркутск, ул. Некрасова, д. 15, корпус 2, офис 4",
@@ -359,7 +359,7 @@ module BoxberryApi
 
         code:     '152',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     20,
         address:  "г. Йошкар-Ола, ул. 70-летия Вооруженных Сил СССР, д. 20, 1 этаж",
@@ -374,7 +374,7 @@ module BoxberryApi
 
         code:     '220',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     90,
         address:  "г. Казань, ул. М.Салимжанова 10/73",
@@ -389,7 +389,7 @@ module BoxberryApi
 
         code:     '19',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     21,
         address:  "г. Калуга, пер. Старообрядческий, д. 9",
@@ -404,7 +404,7 @@ module BoxberryApi
 
         code:     '101',
         zone:     1,
-        sc:       :ekb,
+        sc:       '1002',
 
         city:     22,
         address:  "г. Каменск-Уральский, ул. Синарская, д. 3",
@@ -419,7 +419,7 @@ module BoxberryApi
 
         code:     '80',
         zone:     2,
-        sc:       :ekb,
+        sc:       '1002',
 
         city:     23,
         address:  "г. Кемерово, пр. Ленина, д. 51б",
@@ -434,7 +434,7 @@ module BoxberryApi
 
         code:     '207',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     24,
         address:  "г. Киров, ул. Ленина, д. 152",
@@ -449,7 +449,7 @@ module BoxberryApi
 
         code:     '181',
         zone:     4,
-        sc:       :ekb,
+        sc:       '1002',
 
         city:     91,
         address:  "г. Комсомольск-на-Амуре, пр. Интернациональный 29/3",
@@ -464,7 +464,7 @@ module BoxberryApi
 
         code:     '109',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     133,
         address:  "г. Кострома, пр. Ленина, дом 18, офис 4",
@@ -479,7 +479,7 @@ module BoxberryApi
 
         code:     '40',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     25,
         address:  "г. Краснодар, ул. 40 лет Победы д. 37/1",
@@ -494,7 +494,7 @@ module BoxberryApi
 
         code:     '190',
         zone:     2,
-        sc:       :ekb,
+        sc:       '1002',
 
         city:     26,
         address:  "г. Красноярск, ул. 78-Добровольческой бригады, д.7, пом. №69",
@@ -509,7 +509,7 @@ module BoxberryApi
 
         code:     '4',
         zone:     1,
-        sc:       :ekb,
+        sc:       '1002',
 
         city:     27,
         address:  "г. Курган, ул. Карельцева, д. 13",
@@ -524,7 +524,7 @@ module BoxberryApi
 
         code:     '73',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     28,
         address:  "г. Курск, ул. Сумская д. 36, офис 17, 2 этаж",
@@ -539,7 +539,7 @@ module BoxberryApi
 
         code:     '105',
         zone:     1,
-        sc:       :ekb,
+        sc:       '1002',
 
         city:     103,
         address:  "Свердловская обл., г. Лесной, ул. Ленина, д. 49а, офис 109",
@@ -554,7 +554,7 @@ module BoxberryApi
 
         code:     '71',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     29,
         address:  "г. Липецк, ул. Циолковского, д. 32/3, офис 1",
@@ -569,7 +569,7 @@ module BoxberryApi
 
         code:     '21',
         zone:     1,
-        sc:       :ekb,
+        sc:       '1002',
 
         city:     30,
         address:  "г. Магнитогорск, ул. Енисейская, дом 133/1",
@@ -584,7 +584,7 @@ module BoxberryApi
 
         code:     '22',
         zone:     1,
-        sc:       :ekb,
+        sc:       '1002',
 
         city:     31,
         address:  "г. Миасс, ул. Вернадского, д. 5, офис 4",
@@ -599,7 +599,7 @@ module BoxberryApi
 
         code:     '010',
         zone:     0,
-        sc:       :msk,
+        sc:       '010',
 
         city:     68,
         address:  "г. Москва, ул. Новодмитровская д. 5А, стр 4",
@@ -614,7 +614,7 @@ module BoxberryApi
 
         code:     '202',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     69,
         address:  "г. Мурманск, ул. Пушкинская, д. 5, оф. 25",
@@ -629,7 +629,7 @@ module BoxberryApi
 
         code:     '221',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     105,
         address:  "г. Набережные Челны, пр. Чулман, д. 37, 4, 114",
@@ -644,7 +644,7 @@ module BoxberryApi
 
         code:     '9',
         zone:     2,
-        sc:       :ekb,
+        sc:       '1002',
 
         city:     32,
         address:  "г. Нижневартовск, ул. Северная, д. 54а, стр. 1",
@@ -659,7 +659,7 @@ module BoxberryApi
 
         code:     '150',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     33,
         address:  "г. Нижний Новгород, ул. Невзоровых, д. 89, офис 15",
@@ -674,7 +674,7 @@ module BoxberryApi
 
         code:     '3',
         zone:     1,
-        sc:       :ekb,
+        sc:       '1002',
 
         city:     34,
         address:  "г. Нижний Тагил, ул. Циолковского, д. 17",
@@ -689,7 +689,7 @@ module BoxberryApi
 
         code:     '234',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     138,
         address:  "г. Нефтекамск, ул. Высоковольтная 1б",
@@ -704,7 +704,7 @@ module BoxberryApi
 
         code:     '81',
         zone:     2,
-        sc:       :ekb,
+        sc:       '1002',
 
         city:     66,
         address:  "г. Новокузнецк, ул. Тольятти, 70а",
@@ -719,7 +719,7 @@ module BoxberryApi
 
         code:     '41',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     35,
         address:  "г. Новороссийск, ул. Чайковского, д. 10",
@@ -734,7 +734,7 @@ module BoxberryApi
 
         code:     '170',
         zone:     2,
-        sc:       :ekb,
+        sc:       '1002',
 
         city:     37,
         address:  "г. Новосибирск, ул. Кирова, д. 108/1",
@@ -749,7 +749,7 @@ module BoxberryApi
 
         code:     '108',
         zone:     1,
-        sc:       :ekb,
+        sc:       '1002',
 
         city:     106,
         address:  "г. Новоуральск, ул. Горького, д. 6",
@@ -764,7 +764,7 @@ module BoxberryApi
 
         code:     '25',
         zone:     1,
-        sc:       :ekb,
+        sc:       '1002',
 
         city:     110,
         address:  "г. Озерск, ул. Октябрьская, д. 7а, офис 203",
@@ -779,7 +779,7 @@ module BoxberryApi
 
         code:     '60',
         zone:     2,
-        sc:       :ekb,
+        sc:       '1002',
 
         city:     38,
         address:  "г. Омск, ул. Кучерявенко д. 5",
@@ -794,7 +794,7 @@ module BoxberryApi
 
         code:     '211',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     39,
         address:  "г. Орел, ул. 1-я Посадская, д. 33",
@@ -809,7 +809,7 @@ module BoxberryApi
 
         code:     '231',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     40,
         address:  "г.Оренбург, ул. Терешковой, д. 140",
@@ -824,7 +824,7 @@ module BoxberryApi
 
         code:     '213',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     112,
         address:  "г. Пенза, ул. Суворова д. 71",
@@ -839,7 +839,7 @@ module BoxberryApi
 
         code:     '232',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     115,
         address:  "г. Салават, ул. Первомайская, д. 41/3",
@@ -854,7 +854,7 @@ module BoxberryApi
 
         code:     '1005',
         zone:     1,
-        sc:       :ekb,
+        sc:       '1002',
 
         city:     142,
         address:  "г. Первоуральск, ул. Ватутина, д. 33",
@@ -869,7 +869,7 @@ module BoxberryApi
 
         code:     '30',
         zone:     1,
-        sc:       :ekb,
+        sc:       '1002',
 
         city:     41,
         address:  "г. Пермь, ул. Дружбы, д. 34, офис 301",
@@ -884,7 +884,7 @@ module BoxberryApi
 
         code:     '203',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     42,
         address:  "г. Петрозаводск, ул. М.Мерецкова, д. 16, оф. 12/13",
@@ -899,7 +899,7 @@ module BoxberryApi
 
         code:     '1011',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     139,
         address:  "г. Псков, ул. Западная, д. 18",
@@ -914,7 +914,7 @@ module BoxberryApi
 
         code:     '120',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     43,
         address:  "г. Пятигорск, ул. Адмиральского, д. 6а",
@@ -929,7 +929,7 @@ module BoxberryApi
 
         code:     '1008',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     143,
         address:  "г. Реутов, ул. Ашхабадская, д. 19б",
@@ -944,7 +944,7 @@ module BoxberryApi
 
         code:     '50',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     44,
         address:  "г. Ростов-на-Дону, ул. Суворова, д. 10",
@@ -959,7 +959,7 @@ module BoxberryApi
 
         code:     '18',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     45,
         address:  "г. Рязань, ул. Радищева, д. 59",
@@ -974,7 +974,7 @@ module BoxberryApi
 
         code:     '200',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     46,
         address:  "г. Самара, ул. Ленинская, д. 141, 1 этаж",
@@ -989,7 +989,7 @@ module BoxberryApi
 
         code:     '250',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     116,
         address:  "г. Санкт-Петербург, пр-т Юрия Гагарина, д. 2, литер А",
@@ -1004,7 +1004,7 @@ module BoxberryApi
 
         code:     '210',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     47,
         address:  "г. Саратов, ул. Университетская, д. 65/73",
@@ -1019,7 +1019,7 @@ module BoxberryApi
 
         code:     '215',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     117,
         address:  "г. Саранск, ул. Б.Хмельницкого, д. 14, оф. 104",
@@ -1034,7 +1034,7 @@ module BoxberryApi
 
         code:     '6',
         zone:     1,
-        sc:       :ekb,
+        sc:       '1002',
 
         city:     48,
         address:  "г. Серов, ул.Парковая, д. 11, офис 13",
@@ -1049,7 +1049,7 @@ module BoxberryApi
 
         code:     '205',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     49,
         address:  "г.Смоленск, ул. Нормандия-Неман, д. 33",
@@ -1064,7 +1064,7 @@ module BoxberryApi
 
         code:     '24',
         zone:     1,
-        sc:       :ekb,
+        sc:       '1002',
 
         city:     118,
         address:  "г. Снежинск, ул. Васильева, д. 28, офис 2",
@@ -1079,7 +1079,7 @@ module BoxberryApi
 
         code:     '106',
         zone:     2,
-        sc:       :ekb,
+        sc:       '1002',
 
         city:     119,
         address:  "г. Советский, ул. Калинина, д. 35а",
@@ -1094,7 +1094,7 @@ module BoxberryApi
 
         code:     '121',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     50,
         address:  "г. Ставрополь, ул. Шпаковская, 76а/2",
@@ -1109,7 +1109,7 @@ module BoxberryApi
 
         code:     '8',
         zone:     2,
-        sc:       :ekb,
+        sc:       '1002',
 
         city:     51,
         address:  "г.Сургут, пр-т Ленина, д. 18/1, 1 этаж",
@@ -1124,7 +1124,7 @@ module BoxberryApi
 
         code:     '12',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     52,
         address:  "г. Сыктывкар, Покровский бульвар, д. 5. 1 этаж",
@@ -1139,7 +1139,7 @@ module BoxberryApi
 
         code:     '51',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     53,
         address:  "г. Таганрог, ул. Социалистическая д. 138",
@@ -1154,7 +1154,7 @@ module BoxberryApi
 
         code:     '74',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     54,
         address:  "г. Тамбов, Моршанское шоссе, д. 6б",
@@ -1169,7 +1169,7 @@ module BoxberryApi
 
         code:     '112',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     55,
         address:  "г. Тверь, ул. Лидии Базановой, д. 20, офис 20",
@@ -1184,7 +1184,7 @@ module BoxberryApi
 
         code:     '214',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     56,
         address:  "г. Тольятти, ул. Индустриальная, стр. 2 (ОЦ «Эфель»), 1 этаж, офис 117",
@@ -1199,7 +1199,7 @@ module BoxberryApi
 
         code:     '5',
         zone:     2,
-        sc:       :ekb,
+        sc:       '1002',
 
         city:     57,
         address:  "г. Томск, ул. Советская, д. 33",
@@ -1214,7 +1214,7 @@ module BoxberryApi
 
         code:     '116',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     122,
         address:  "г. Тула, ул. Демидовская, д. 179, 179а, лит Б4, 1 этаж",
@@ -1229,7 +1229,7 @@ module BoxberryApi
 
         code:     '160',
         zone:     1,
-        sc:       :ekb,
+        sc:       '1002',
 
         city:     67,
         address:  "г. Тюмень, ул.Комсомольская, д. 58, 1 этаж",
@@ -1244,7 +1244,7 @@ module BoxberryApi
 
         code:     '141',
         zone:     3,
-        sc:       :ekb,
+        sc:       '1002',
 
         city:     59,
         address:  "г. Улан-Удэ, ул. Павлова, д. 23, 1 этаж",
@@ -1259,7 +1259,7 @@ module BoxberryApi
 
         code:     '209',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     124,
         address:  "г. Ульяновск, ул. Робеспьера, д. 114, офис 4",
@@ -1274,7 +1274,7 @@ module BoxberryApi
 
         code:     '230',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     60,
         address:  "г. Уфа, ул. Владивостокская, 7/1",
@@ -1289,7 +1289,7 @@ module BoxberryApi
 
         code:     '115',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     126,
         address:  "г. Ухта, ул. Тиманская д. 11 офис 9",
@@ -1304,7 +1304,7 @@ module BoxberryApi
 
         code:     '180',
         zone:     4,
-        sc:       :ekb,
+        sc:       '1002',
 
         city:     61,
         address:  "г. Хабаровск, ул. Серышева, д. 88",
@@ -1319,7 +1319,7 @@ module BoxberryApi
 
         code:     '104',
         zone:     2,
-        sc:       :ekb,
+        sc:       '1002',
 
         city:     127,
         address:  "г. Ханты-Мансийск, ул. Шевченко, 57, офис 8",
@@ -1334,7 +1334,7 @@ module BoxberryApi
 
         code:     '1006',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     144,
         address:  "г. Химки, ул. Панфилова, д. 1",
@@ -1349,7 +1349,7 @@ module BoxberryApi
 
         code:     '153',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     62,
         address:  "г. Чебоксары, пр-т Мира, 9, оф. 236",
@@ -1364,7 +1364,7 @@ module BoxberryApi
 
         code:     '15',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     128,
         address:  "г. Череповец, ул. Дзержинского, д. 20, оф. 14",
@@ -1379,7 +1379,7 @@ module BoxberryApi
 
         code:     '142',
         zone:     3,
-        sc:       :ekb,
+        sc:       '1002',
 
         city:     65,
         address:  "г. Чита, ул. Забайкальского рабочего, д. 45 офис 5",
@@ -1394,7 +1394,7 @@ module BoxberryApi
 
         code:     '26',
         zone:     1,
-        sc:       :ekb,
+        sc:       '1002',
 
         city:     140,
         address:  "г. Шадринск, ул. Комсомольская д. 16, корпус 2, офис 47",
@@ -1409,7 +1409,7 @@ module BoxberryApi
 
         code:     '11',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     64,
         address:  "г. Ярославль , пр-т Ленина, д. 23, офис 17",
@@ -1424,7 +1424,7 @@ module BoxberryApi
 
         code:     '183',
         zone:     4,
-        sc:       :ekb,
+        sc:       '1002',
 
         city:     129,
         address:  "г. Южно-Сахалинск, ул. Чехова, д. 66, офис 31",
@@ -1439,7 +1439,7 @@ module BoxberryApi
 
         code:     '241',
         zone:     1,
-        sc:       :msk,
+        sc:       '010',
 
         city:     130,
         address:  "г. Элиста ул. Республиканская д. 8",
@@ -1662,16 +1662,14 @@ module BoxberryApi
 
     alias :delivery_point :code
 
+    # Сортировочный центр
     def sc
       @table[:sc]
     end # sc
 
     # Код пункта приема
     def collection_point
-
-      # Отправляем товары из Челябинска
       20
-
     end # collection_point
 
     private
