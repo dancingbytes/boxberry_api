@@ -1274,7 +1274,7 @@ module BoxberryApi
 
         code:     '230',
         zone:     1,
-        sc:       '010',
+        sc:       '1002',
 
         city:     60,
         address:  "г. Уфа, ул. Владивостокская, 7/1",
