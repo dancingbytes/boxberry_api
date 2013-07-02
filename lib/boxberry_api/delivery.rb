@@ -14,7 +14,7 @@ module BoxberryApi
 
         code:     '191',
         zone:     2,
-        sc:       '1002',
+        sc:       '010',
 
         city:     5,
         address:  "Абакан, ул. Ленинского Комсомола, д. 35. Второй офис слева. №76",
@@ -89,7 +89,7 @@ module BoxberryApi
 
         code:     '82',
         zone:     2,
-        sc:       '1002',
+        sc:       '010',
 
         city:     96,
         address:  "г. Барнаул, ул. Короленко, д. 48",
@@ -134,7 +134,7 @@ module BoxberryApi
 
         code:     '182',
         zone:     4,
-        sc:       '1002',
+        sc:       '010',
 
         city:     10,
         address:  "г. Благовещенск, ул. Амурская, д. 180 офис 2",
@@ -149,7 +149,7 @@ module BoxberryApi
 
         code:     '143',
         zone:     3,
-        sc:       '1002',
+        sc:       '010',
 
         city:     11,
         address:  "г. Братск, Индустриальный проезд, дом № 5А/6, офис 204",
@@ -194,7 +194,7 @@ module BoxberryApi
 
         code:     '90',
         zone:     4,
-        sc:       '1002',
+        sc:       '010',
 
         city:     134,
         address:  "г. Владивосток, ул. Пологая, д. 50",
@@ -254,7 +254,7 @@ module BoxberryApi
 
         code:     '162',
         zone:     1,
-        sc:       '1002',
+        sc:       '010',
 
         city:     135,
         address:  "г. Воркута, ул. Ленина, д. 14, кв. 1",
@@ -344,7 +344,7 @@ module BoxberryApi
 
         code:     '14',
         zone:     3,
-        sc:       '1002',
+        sc:       '010',
 
         city:     19,
         address:  "г. Иркутск, ул. Некрасова, д. 15, корпус 2, офис 4",
@@ -419,7 +419,7 @@ module BoxberryApi
 
         code:     '80',
         zone:     2,
-        sc:       '1002',
+        sc:       '010',
 
         city:     23,
         address:  "г. Кемерово, пр. Ленина, д. 51б",
@@ -449,7 +449,7 @@ module BoxberryApi
 
         code:     '181',
         zone:     4,
-        sc:       '1002',
+        sc:       '010',
 
         city:     91,
         address:  "г. Комсомольск-на-Амуре, пр. Интернациональный 29/3",
@@ -494,7 +494,7 @@ module BoxberryApi
 
         code:     '190',
         zone:     2,
-        sc:       '1002',
+        sc:       '010',
 
         city:     26,
         address:  "г. Красноярск, ул. 78-Добровольческой бригады, д.7, пом. №69",
@@ -599,7 +599,7 @@ module BoxberryApi
 
         code:     '010',
         zone:     0,
-        sc:       '010',
+        sc:       '1002',
 
         city:     68,
         address:  "г. Москва, ул. Новодмитровская д. 5А, стр 4",
@@ -704,7 +704,7 @@ module BoxberryApi
 
         code:     '81',
         zone:     2,
-        sc:       '1002',
+        sc:       '010',
 
         city:     66,
         address:  "г. Новокузнецк, ул. Тольятти, 70а",
@@ -734,7 +734,7 @@ module BoxberryApi
 
         code:     '170',
         zone:     2,
-        sc:       '1002',
+        sc:       '010',
 
         city:     37,
         address:  "г. Новосибирск, ул. Кирова, д. 108/1",
@@ -779,7 +779,7 @@ module BoxberryApi
 
         code:     '60',
         zone:     2,
-        sc:       '1002',
+        sc:       '010',
 
         city:     38,
         address:  "г. Омск, ул. Кучерявенко д. 5",
@@ -1199,7 +1199,7 @@ module BoxberryApi
 
         code:     '5',
         zone:     2,
-        sc:       '1002',
+        sc:       '010',
 
         city:     57,
         address:  "г. Томск, ул. Советская, д. 33",
@@ -1244,7 +1244,7 @@ module BoxberryApi
 
         code:     '141',
         zone:     3,
-        sc:       '1002',
+        sc:       '010',
 
         city:     59,
         address:  "г. Улан-Удэ, ул. Павлова, д. 23, 1 этаж",
@@ -1304,7 +1304,7 @@ module BoxberryApi
 
         code:     '180',
         zone:     4,
-        sc:       '1002',
+        sc:       '010',
 
         city:     61,
         address:  "г. Хабаровск, ул. Серышева, д. 88",
@@ -1379,7 +1379,7 @@ module BoxberryApi
 
         code:     '142',
         zone:     3,
-        sc:       '1002',
+        sc:       '010',
 
         city:     65,
         address:  "г. Чита, ул. Забайкальского рабочего, д. 45 офис 5",
@@ -1424,7 +1424,7 @@ module BoxberryApi
 
         code:     '183',
         zone:     4,
-        sc:       '1002',
+        sc:       '010',
 
         city:     129,
         address:  "г. Южно-Сахалинск, ул. Чехова, д. 66, офис 31",
