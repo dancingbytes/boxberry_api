@@ -55,24 +55,8 @@ module BoxberryApi
 
     def send_message(msg)
 
-      unless ::SMS.convert_phone(@order.phone_number)
-
-        ::BoxberryApi.error "[BoxberryApi::Message] Неверный формат телефона: #{@order.phone_number}."
-        return false
-
-      else
-
-        begin
-          ::SMS.message(@order.phone_number, msg)
-        rescue => e
-          ::Rails.logger.tagged("SMS [message]") {
-            ::Rails.logger.error(e.message)
-          }
-        end
-
-        return true
-
-      end # unless
+      ::MessageTemplate.send_sms(@order.phone_number, msg, @order.uri)
+      return true
 
     end # send_message
 
