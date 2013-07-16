@@ -55,7 +55,7 @@ module BoxberryApi
 
     def send_message(msg)
 
-      ::MessageTemplate.send_sms(@order.phone_number, msg, @order.uri)
+      ::SmsQuery.send_sms(@order.phone_number, msg, @order.uri)
       return true
 
     end # send_message
