@@ -5,6 +5,7 @@ require 'boxberry_api/version'
 require 'boxberry_api/ext'
 require 'boxberry_api/message'
 require 'boxberry_api/mailer'
+require 'boxberry_api/cities'
 
 module BoxberryApi
 

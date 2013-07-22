@@ -18,7 +18,7 @@ namespace :boxberry do
       descr << "<span style=\"font-weight: bold;\">Телефон:</span> #{values[:phone]}<br />" unless values[:phone].blank?
       descr << "<span style=\"font-weight: bold;\">График работы:</span> #{values[:work]}"  unless values[:work].blank?
 
-      b, e  = ::BoxberryApi::Delivery.delivery_cost_for_zone(values[:zone])
+      b  = ::BoxberryApi::Delivery.delivery_cost_for_zone(values[:zone])
 
       r, d, a, v = key.split('-')
 
@@ -31,7 +31,7 @@ namespace :boxberry do
       dv.location         = "test"
 
       dv.delivery_type_id = ::BoxberryApi::UUID
-      dv.price            = "от #{b} руб. до #{e} руб."
+      dv.price            = "от #{b.ceil} руб."
       dv.time             = values[:delivery].to_count("день", "дня", "дней", "дней")
       dv.description      = descr
 
