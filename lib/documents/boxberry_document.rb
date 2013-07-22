@@ -12,7 +12,7 @@ module BoxberryDocument
     def initialize(order)
 
       @order    = order
-      @boxberry = ::BoxberryApi::Delivery.new(order, order.weight)
+      @boxberry = ::BoxberryApi::Delivery.new(order)
 
     end # new
 
