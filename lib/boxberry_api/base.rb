@@ -102,12 +102,15 @@ module BoxberryApi
           str << " Телефон: #{datas[:phone]}."      if datas[:phone]
           str << " Время работы: #{datas[:work]}."  if datas[:work]
 
-          ::ParcelTrack.update_status(order.delivery_identifier, {
+          res = ::ParcelTrack.update_status(order.delivery_identifier, {
             message:      str,
             timestamp:    new_date,
             service_name: "Boxberry",
             operation:    5
           })
+
+          # TODO: Временное решение
+          ::SmsQuery.send_sms(order.phone_number, str, order.uri) unless res
 
         # Возврат
         when 19 then
