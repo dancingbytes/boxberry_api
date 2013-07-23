@@ -96,7 +96,7 @@ module BoxberryApi
 
     def create_order_card(xml, order)
 
-      delivery = ::BoxberryApi::Delivery.new(order, order.weight)
+      delivery = ::BoxberryApi::Delivery.new(order)
 
       # Если стоит фильтр по сортировочному центру, то
       # выбираем заказы, относящиеся к указанному ЦСУ.
