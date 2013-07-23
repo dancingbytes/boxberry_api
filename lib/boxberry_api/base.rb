@@ -96,7 +96,7 @@ module BoxberryApi
 
           datas = ::BoxberryApi::Delivery.info_for_city(order)
 
-          str = "Заказ № #{@order.uri} прибыл в пункт выдачи Боксберри."
+          str = "Заказ № #{order.uri} прибыл в пункт выдачи Боксберри."
           str << " К оплате: #{order.price.indent} руб." unless order.payed?
           str << " Адрес: #{datas[:address]}."      if datas[:address]
           str << " Телефон: #{datas[:phone]}."      if datas[:phone]
