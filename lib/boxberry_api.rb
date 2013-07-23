@@ -3,7 +3,6 @@ require 'nokogiri'
 
 require 'boxberry_api/version'
 require 'boxberry_api/ext'
-require 'boxberry_api/message'
 require 'boxberry_api/mailer'
 require 'boxberry_api/cities'
 
@@ -67,13 +66,6 @@ module BoxberryApi
   def status?(code)
     !::BoxberryApi::STATUSES[code.try(:to_i) || -1].nil?
   end # status?
-
-  def send_message(order)
-
-    msg = ::BoxberryApi::Message.new(order)
-    msg.send_sms
-
-  end # send_message
 
   def errors(msg)
 

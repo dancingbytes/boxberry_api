@@ -48,23 +48,9 @@ module BoxberryApi
 
 
           d, m, y = date.split(".")
-          new_date = Time.new(y.to_i + 2000, m.to_i, d.to_i, 0, 0, 0) rescue nil
+          new_date = Time.new(y.to_i + 2000, m.to_i, d.to_i, 0, 0, 0).utc rescue Time.now.utc
 
-          # Сохраняем изменения в истории заказа
-          oh = ::OrderHistory.new
-
-          oh.type_code  = 5
-          oh.order_id   = order.id
-          oh.order_uri  = order.uri
-          oh.order_created_at = order.created_at
-          oh.email      = order.email
-          oh.created_at = (date.to_time rescue nil)
-          oh.content    = "#{::OrderHistory::HISTORY_TYPES[5]}: #{order.delivery_state_name}"
-
-          oh.save
-
-          # Отправлем смс-сообщение пользователю
-          ::BoxberryApi.send_message(order)
+          update_history(state, order, new_date)
 
         end # if
 
@@ -88,6 +74,67 @@ module BoxberryApi
       ::BoxberryMailer.errors(data).deliver
 
     end # orders_errors
+
+    private
+
+    def update_history(state, order, new_date)
+
+      case state.try(:to_i)
+
+        # Вручение
+        when 10 then
+
+          ::ParcelTrack.update_status(order.delivery_identifier, {
+            message:      "Заказ передан клиенту",
+            timestamp:    new_date,
+            service_name: "Boxberry",
+            operation:    6
+          })
+
+        # Готов к вручению
+        when 18 then
+
+          datas = ::BoxberryApi::Delivery.info_for_city(order)
+
+          str = "Заказ № #{@order.uri} прибыл в пункт выдачи Боксберри."
+          str << " К оплате: #{order.price.indent} руб." unless order.payed?
+          str << " Адрес: #{datas[:address]}."      if datas[:address]
+          str << " Телефон: #{datas[:phone]}."      if datas[:phone]
+          str << " Время работы: #{datas[:work]}."  if datas[:work]
+
+          ::ParcelTrack.update_status(order.delivery_identifier, {
+            message:      str,
+            timestamp:    new_date,
+            service_name: "Boxberry",
+            operation:    5
+          })
+
+        # Возврат
+        when 19 then
+
+          ::ParcelTrack.update_status(order.delivery_identifier, {
+            message:      ::BoxberryApi.status(19),
+            timestamp:    new_date,
+            service_name: "Boxberry",
+            operation:    7
+          })
+
+        # Приём
+        when 22 then
+
+          ::ParcelTrack.update_status(order.delivery_identifier, {
+            message:      ::BoxberryApi.status(22),
+            timestamp:    new_date,
+            service_name: "Boxberry",
+            operation:    2
+          })
+
+        else
+          ::BoxberryApi.error "[BoxberryApi::Base.update_history] Шаблон не найден. Код статуса доставки: #{state}."
+
+      end # case
+
+    end # update_history
 
   end # Base
 
