@@ -142,8 +142,8 @@ module BoxberryApi
           # Код пункта самовывоза заказа (покупатель)
           xml.name        delivery.delivery_point
 
-          # Код пункта приема заказа (интенет-магазин)
-          xml.name1       delivery.sc
+          # Код РСУ
+          xml.name1       "1002" # delivery.sc
 
         } # shop
 
