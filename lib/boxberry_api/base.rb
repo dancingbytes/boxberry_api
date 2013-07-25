@@ -46,11 +46,22 @@ module BoxberryApi
             delivery_state_name: order.delivery_state_name
           })
 
-
           d, m, y = date.split(".")
-          new_date = Time.new(y.to_i + 2000, m.to_i, d.to_i, 0, 0, 0).utc rescue Time.now.utc
 
-          update_history(state, order, new_date)
+          begin
+
+            new_date = Time.new(y.to_i + 2000, m.to_i, d.to_i, 0, 0, 0).utc #rescue Time.now.utc
+            update_history(state, order, new_date)
+
+          rescue  => e
+
+            ::Rails.logger.tagged("BoxBerry [new_date]") {
+              ::Rails.logger.error("date: #{date} -> #{state}")
+              ::Rails.logger.error(e.message)
+              ::Rails.logger.error(e.backtrace.join("\n"))
+            }
+
+          end
 
         end # if
 
