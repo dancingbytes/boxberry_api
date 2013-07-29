@@ -58,7 +58,6 @@ module BoxberryApi
             ::Rails.logger.tagged("BoxBerry [new_date]") {
               ::Rails.logger.error("date: #{date} -> #{state}")
               ::Rails.logger.error(e.message)
-              ::Rails.logger.error(e.backtrace.join("\n"))
             }
 
           end
