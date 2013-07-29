@@ -1,5 +1,5 @@
 # encoding: utf-8
-module BoxberryDocument
+module Boxberry
 
   class Snippets
 
@@ -97,7 +97,7 @@ module BoxberryDocument
     def initialize(datas)
 
       # Переменные
-      @snippets   = ::BoxberryDocument::Snippets.new(datas)
+      @snippets   = ::Boxberry::Snippets.new(datas)
 
       # Файловый менеджер
       @multimedia = ::Multimedia.new
@@ -157,4 +157,4 @@ module BoxberryDocument
 
   end # Document
 
-end # BoxberryDocument
+end # Boxberry
