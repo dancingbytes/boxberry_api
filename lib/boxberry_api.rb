@@ -82,7 +82,8 @@ require 'boxberry_api/delivery'
 require 'boxberry_api/base'
 require 'boxberry_api/xml'
 
-require 'documents/documents'
+require 'documents/boxberry_document'
+require 'documents/boxberry_acceptance_report_document'
 
 require 'boxberry_api/engine'
 require 'boxberry_api/railtie'
