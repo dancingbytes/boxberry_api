@@ -14,7 +14,7 @@ module BoxberryApi
 
       ::BoxberryApi::XML.
         new(selector, sc).
-        list_orders().
+        list_orders.
         to_file
 
     end # list_orders
@@ -50,15 +50,15 @@ module BoxberryApi
 
           begin
 
-            new_date = Time.new(y.to_i + 2000, m.to_i, d.to_i, 0, 0, 0).utc #rescue Time.now.utc
+            new_date = Time.new(y.to_i + 2000, m.to_i, d.to_i, 0, 0, 0).utc rescue Time.now.utc
             update_history(state, order, new_date)
 
           rescue  => e
 
-            ::Rails.logger.tagged("BoxBerry [new_date]") {
-              ::Rails.logger.error("date: #{date} -> #{state}")
-              ::Rails.logger.error(e.message)
-            }
+            ::BoxberryApi.log(
+              "date: #{date} -> #{state}\n#{e.message}",
+              "BoxBerry [new_date]"
+            )
 
           end
 
@@ -143,7 +143,11 @@ module BoxberryApi
           })
 
         else
-          ::BoxberryApi.error "[BoxberryApi::Base.update_history] Шаблон не найден. Код статуса доставки: #{state}."
+
+          ::BoxberryApi.log(
+            "Шаблон не найден. Код статуса доставки: #{state}.",
+            "[BoxberryApi::Base.update_history]"
+          )
 
       end # case
 

@@ -67,14 +67,32 @@ module BoxberryApi
     !::BoxberryApi::STATUSES[code.try(:to_i) || -1].nil?
   end # status?
 
-  def errors(msg)
+  def to_pdf(content)
 
-    ::Rails.logger.error(msg)
-    msg
+    pdf = ::PDFKit.new(content)
+    pdf.to_file("/tmp/#{::Time.now.to_f}-#{rand}.pdf")
 
-  end # errors
+  end # to_pdf
 
-  alias :error :errors
+  def barcode(str)
+    ::Barcode.new(str, { width: 200, height: 48 }).ean13.base64
+  end # barcode
+
+  def log(str, mark = nil)
+
+    if mark
+
+      ::Rails.logger.tagged(mark) {
+        ::Rails.logger.error(str)
+      }
+
+    else
+      ::Rails.logger.error(str)
+    end
+
+    str
+
+  end # log
 
 end # BoxberryApi
 
@@ -82,8 +100,7 @@ require 'boxberry_api/delivery'
 require 'boxberry_api/base'
 require 'boxberry_api/xml'
 
-require 'documents/boxberry_document'
-require 'documents/boxberry_acceptance_report_document'
+require 'documents/boxberry_documents_require'
 
 require 'boxberry_api/engine'
 require 'boxberry_api/railtie'
