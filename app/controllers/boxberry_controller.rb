@@ -19,11 +19,6 @@ class BoxberryController < ApplicationController
       # Изменение статусов заказов
       when "complete_orders" then
 
-        ::BoxberryApi.log(
-          "encode_str(params[:data]) -> #{encode_str(params[:data])}",
-          "BoxBerry [complete_orders]"
-        )
-
         return_answer_for(
           ::BoxberryApi::Base.change_statuses( encode_str(params[:data]) )
         )
