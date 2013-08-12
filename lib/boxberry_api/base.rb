@@ -9,7 +9,7 @@ module BoxberryApi
     # Если параметр data не задан, то вы выводятся все заказы.
     def list_orders(sc = nil, all = nil)
 
-      selector = ::Order.by_boxberry.for_delivery
+      selector = ::Order.where(:delivery_type_id => ::BoxberryApi::UUID).for_delivery
       selector = selector.where(:delivery_state_code.in => [0, nil]) if all != true
 
       ::BoxberryApi::XML.
