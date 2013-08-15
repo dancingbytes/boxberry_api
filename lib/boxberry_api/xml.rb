@@ -157,12 +157,12 @@ module BoxberryApi
 
             xml.name      order.organization
             xml.address   order.juridical_address
-            xml.inn       order.inn
-            xml.kpp       order.kpp
-            xml.r_s       order.account
+            xml.inn       clean_whitespaces(order.inn)
+            xml.kpp       clean_whitespaces(order.kpp)
+            xml.r_s       clean_whitespaces(order.account)
             xml.bank      order.bank_name
-            xml.kor_s     order.korr_account
-            xml.bik       order.bik
+            xml.kor_s     clean_whitespaces(order.korr_account)
+            xml.bik       clean_whitespaces(order.bik)
 
           else
 
@@ -237,6 +237,10 @@ module BoxberryApi
         .gsub(/</, "&lt;")
 
     end # xml_escape
+
+    def clean_whitespaces(str)
+      (str || "").sub(/\A\s+/, "").sub(/\s+\z/, "").gsub(/(\s){2,}/, '\\1')
+    end # clean_whitespaces
 
   end # XML
 
