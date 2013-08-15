@@ -239,7 +239,7 @@ module BoxberryApi
     end # xml_escape
 
     def clean_whitespaces(str)
-      (str || "").sub(/\A\s+/, "").sub(/\s+\z/, "").gsub(/(\s){2,}/, '\\1')
+      (str || "").gsub(/\s/, "")
     end # clean_whitespaces
 
   end # XML
