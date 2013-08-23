@@ -23,7 +23,7 @@ module BoxberryApi
 
           xml.OrdersDay({ "day" => current_date.strftime("%Y%m%d") }) {
 
-            if @selector.count == 0
+            if @selector.count == 0 || @sc.nil?
               xml.text(" ")
             else
 
