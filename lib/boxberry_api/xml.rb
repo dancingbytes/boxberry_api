@@ -9,7 +9,7 @@ module BoxberryApi
 
       @selector = selector
       @source   = nil
-      @sc       = sc
+      @sc       = String(sc)
 
     end # new
 
@@ -23,7 +23,7 @@ module BoxberryApi
 
           xml.OrdersDay({ "day" => current_date.strftime("%Y%m%d") }) {
 
-            if @selector.count == 0 || @sc.nil?
+            if @selector.count == 0 || @sc.blank?
               xml.text(" ")
             else
 
@@ -100,7 +100,7 @@ module BoxberryApi
 
       # Если стоит фильтр по сортировочному центру, то
       # выбираем заказы, относящиеся к указанному ЦСУ.
-      return if !@sc.nil? && delivery.sc != @sc
+      return if @sc.blank? && delivery.sc != @sc
 
       xml.order({ "id" => order.uri }) {
 

@@ -599,7 +599,7 @@ module BoxberryApi
 
         code:     '010',
         zone:     0,
-        sc:       '1002',
+        sc:       '010',
 
         city:     68,
         address:  "г. Москва, ул. Новодмитровская д. 5А, стр 4",
