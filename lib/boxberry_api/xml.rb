@@ -100,7 +100,7 @@ module BoxberryApi
 
       # Если стоит фильтр по сортировочному центру, то
       # выбираем заказы, относящиеся к указанному ЦСУ.
-      return if @sc.blank? && delivery.sc != @sc
+      return if @sc.blank? || delivery.sc != @sc
 
       xml.order({ "id" => order.uri }) {
 
