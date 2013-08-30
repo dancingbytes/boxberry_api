@@ -143,7 +143,7 @@ module BoxberryApi
           xml.name        delivery.delivery_point
 
           # Код РСУ
-          xml.name1       "1002" # delivery.sc
+          xml.name1       "20" #"1002" # delivery.sc
 
         } # shop
 
