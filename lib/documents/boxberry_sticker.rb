@@ -87,6 +87,7 @@ module Boxberry
 
           when '010'  then "ЦСУ Москва"
           when '1002' then "ЦСУ Екатеринбург"
+          when '20'   then "ЦСУ Челябинск"
 
           else "нет данных"
 
