@@ -203,11 +203,11 @@ module BoxberryApi
       @cost = 0
 
       unless @order.payed?
-        @cost += (@order.basket_price * 0.03)
+        @cost += (@order.basket_price * 0.05)
       end
 
-      @cost += ((@tariff + self.additional_cost) * 1.03)
-      @cost += (@order.package_price * 1.1)
+      @cost += ((@tariff + self.additional_cost) * 1.04)
+      @cost += (@order.package_price * 1.2)
 
       @cost
 
