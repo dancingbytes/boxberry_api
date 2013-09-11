@@ -117,7 +117,7 @@ module BoxberryApi
         xml.send_date     order.send_date.try(:strftime, "%d.%m.%Y %H:%M")
 
         # Штрих-код заказа
-        xml.barcode       order.uri
+        xml.barcode       ::Barcode.new(order.uri.ljust(12, '0'), { width: 200, height: 48 }).ean13.code
 
         # Номер накладной по которой пришел заказ от интернет-магазина в Boxberry
         xml.torg12        order.uri
