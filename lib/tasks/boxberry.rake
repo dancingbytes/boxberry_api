@@ -17,21 +17,21 @@ namespace :boxberry do
         price:  "расчитывается",
         time:   "5 - 14 дней",
         description: "Почта EMS является дорогим, но относительно быстрым способом доставки. Средняя стоимость варьируется от 800 до 2000 рублей. Вы можете рассчитать приблизительную стоимость доставки, воспользовавшись калькулятором на сайте <a href=\"http://www.emspost.ru/ru/calc/\">Почты EMS</a>. Выберите Челябинскую область в качестве пункта отправления и вес заказа.",
-        position: 10
+        position: 4
       }, {
         # Почта России
         delivery_type_id: "4f86e26e8a67ad5f0f00000b",
         price:  "от 200 руб.",
         time:   "1 – 3 недели",
         description: "Мы хорошо упакуем ваш заказ, вложим накладную, все необходимые инструкции и отправим Почтой России. Если необходимо, вы можете выбрать &laquo;Наложенный платёж&raquo; &mdash; в данном случае оплата будет производиться на месте, в вашем местном почтовом отделении. Минус данного способа оплаты &mdash; дополнительная комиссия, которую взимает Почта России в размере нескольких процентов. Из плюсов &mdash; широкая география отделений по всей стране.",
-        position: 11
+        position: 5
       }, {
         # Почта России 1 класс
         delivery_type_id: "5100ed648a67adc7f1000026",
         price:  "от 250 руб.",
         time:   "1 – 3 недели",
         description: "<span style=\"font-weight: bold;\">Максимальный вес посылки 2 кг.</span><br />Мы хорошо упакуем ваш заказ, вложим накладную, все необходимые инструкции и отправим Почтой России. Если необходимо, вы можете выбрать &laquo;Наложенный платёж&raquo; &mdash; в данном случае оплата будет производиться на месте, в вашем местном почтовом отделении. Минус данного способа оплаты &mdash; дополнительная комиссия, которую взимает Почта России в размере нескольких процентов. Из плюсов &mdash; широкая география отделений по всей стране.",
-        position: 12
+        position: 6
       }
 
     ]
@@ -58,9 +58,9 @@ namespace :boxberry do
 
       dv.delivery_type_id = ::BoxberryApi::UUID
       dv.price            = "от #{b.ceil} руб."
-      dv.time             = values[:delivery].to_count("день", "дня", "дней", "дней")
+      dv.time             = (values[:delivery] + 15) .to_count("день", "дня", "дней", "дней")
       dv.description      = descr
-      dv.position         = 2
+      dv.position         = 20
 
       unless dv.with(safe: true).save
         puts "key: #{key}, r: #{r}, d: #{d}, a: #{a}, v: #{v}."
@@ -68,18 +68,19 @@ namespace :boxberry do
         throw "ERROR"
       end
 
-      count = Delivery.
-        where({
-          region_code:    r,
-          district_code:  d,
-          area_code:      a,
-          village_code:   v,
-          :delivery_type_id.in => [
-            "4f86e26e8a67ad5f0f00000b",
-            "5100ed648a67adc7f1000026",
-            "4f86e26e8a67ad5f0f000006"
-          ]
-        }).count
+      count = Delivery.where({
+
+        region_code:    r,
+        district_code:  d,
+        area_code:      a,
+        village_code:   v,
+        :delivery_type_id.in => [
+          "4f86e26e8a67ad5f0f00000b",
+          "5100ed648a67adc7f1000026",
+          "4f86e26e8a67ad5f0f000006"
+        ]
+
+      }).count
 
       if count == 0
 
