@@ -24,6 +24,6 @@ Gem::Specification.new do |spec|
 
 
   spec.add_dependency "nokogiri", "~> 1.5"
-  spec.add_dependency "rails", "~> 3.2.13"
+  spec.add_dependency "rails", "~> 3.2"
 
 end
